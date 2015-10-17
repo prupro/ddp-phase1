@@ -10,12 +10,6 @@
 \contentsline {subsubsection}{\numberline {2.3.3}Finding direction}{4}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {2.3.4}Multiple Unidirectional tracks}{6}{subsubsection.2.3.4}
 \contentsline {subsection}{\numberline {2.4}Alarm unit}{6}{subsection.2.4}
-\contentsline {section}{\numberline {3}Circuit Diagrams}{7}{section.3}
-\contentsline {subsection}{\numberline {3.1}Hardware block diagram:}{7}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Sensor unit}{8}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Alarm unit}{9}{subsection.3.3}
-\contentsline {section}{\numberline {4}Objectives achieved}{10}{section.4}
-\contentsline {section}{\numberline {5}Problems faced}{10}{section.5}
-\contentsline {section}{\numberline {6}Conclusions}{10}{section.6}
-\contentsline {section}{\numberline {7}Future Work}{11}{section.7}
-\contentsline {section}{\numberline {8}References}{11}{section.8}
+\contentsline {section}{\numberline {3}Simulations and Results}{7}{section.3}
+\contentsline {section}{\numberline {4}Conclusion and Future Work}{7}{section.4}
+\contentsline {section}{\numberline {5}References}{7}{section.5}
