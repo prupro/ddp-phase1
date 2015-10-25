@@ -249,10 +249,11 @@ where the new channel fading terms are defined as
 and the noise terms are now all $\mathcal{CN}(0,1)$. Using these equivalent 
 standard channels, we can compute the transmission rate as in Eq.~\ref{eq:rate}
 
-\section{Cooperation Policies} \label{sec:coop}
+\section{Cooperation Policies and Probability} \label{sec:coop}
 In this section, we look at three cooperation policies: an ideal policy $E_1$, a 
 pure geometric policy $E_2$ and a hybrid policy $E_3$ that defines whether an active UE should select an inactive UE to use it in PDF relaying. Also, expressions for cooperation probabilities of $E_2$ and $E_3$ are derived.
-\subsection{Ideal Policy $E_1$}
+\subsection{Policies}
+\subsubsection{Ideal Policy $E_1$}
 The ideal cooperation policy $E_1$ requires the active UE nodes to know instantaneous  SINRs of the relay link($\mathcal{S}-\mathcal{R}$) and the
 direct link($\mathcal{S}-\mathcal{D}$). The policy is defined as 
 \begin{align*}
@@ -263,7 +264,7 @@ where $r_1$ and $r_2$ denote the direct distance
 between $\mathcal{S}$ and $\mathcal{D}$ and cooperation distance between $\mathcal{S}$ and its closest idle UE, respectively and $\alpha$ is pathloss exponent. This event $E_1$ identifies whether an idle UE will be associated as a relay for the $k^{th}$ UE and participate in transmission. Noise variance $\sigma^2$ is ignored since interference dominates. 
 \par Since interference at relay and destination during first phase is more or less the same and $g_{sr}, g_{sd}$ are identically distributed, we can safely ignore them and propose a policy that depends only on distances.
 
-\subsection{Pure Geometric Policy $E_2$}
+\subsubsection{Pure Geometric Policy $E_2$}
 This policy is defined as
 \begin{equation}
 E_2 = \{r_2\leq r_1, D \leq r_1 \}
@@ -277,13 +278,13 @@ from the active user to the nearest idle user and to the base
 station. It represents a practical decision making strategy for
 fast fading channels, requiring no knowledge of the channel
 fading. 
-\subsection{Hybrid Policy $E_3$}
+\subsubsection{Hybrid Policy $E_3$}
 This policy is proposed for slow fading channels where small scale fading parameters estimation and their
 feedback to the decision making node is feasible. 
 \begin{equation}
 E_3 = \{g_{sd}r_1^{-\alpha} \leq g_{sr}r_2^{-\alpha}, D \leq r_1 \}
 \end{equation}
-Note that this cooperation policy is still independent from the
+Note that this cooperation policy is still independent of the
 interference as in the pure geometric cooperation policy $E_2$.
 
 
