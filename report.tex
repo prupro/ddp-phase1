@@ -16,6 +16,7 @@
 %\usepackage{lmodern}
 %\usepackage{tgadventor}
 \usepackage{multicol}
+\usepackage{amsthm}
 
 \hypersetup{ % play with the different link colors here
      %colorlinks = true,
@@ -23,6 +24,7 @@
      frenchlinks = true
       }
       
+\newtheorem{thm}{Theorem}
 
 \begin{document}
 
@@ -287,9 +289,98 @@ E_3 = \{g_{sd}r_1^{-\alpha} \leq g_{sr}r_2^{-\alpha}, D \leq r_1 \}
 Note that this cooperation policy is still independent of the
 interference as in the pure geometric cooperation policy $E_2$.
 
+\subsection{Cooperation Probabilities}
+In this part of the section we derive cooperation probabilities $\rho_2$ and $\rho_3$ for the policies $E_2$ and $E_3$ respectively. For the ideal policy $E_1$, analytic evaluation of the
+cooperation probability is rather complicated because of the
+inter-dependency between the cooperation decision and con-
+sequential interference among different cells, hence we use
+numerical simulations instead. Consider a random BS and its associated active UE. 
+The distribution of the distance
+$r_1$ between the $i^{th}$ UE and its associated BS can be shown to
+be Rayleigh distributed directly from the null probability of a
+two dimensional PPP distribution. 
+\par we can assume due to the stationarity of the
+PPP, i.e., location of the origin doesn't change the distribution of points, and the independence of $\Phi_2$ from BSs distribution that
+the location of the UE associated with the BS under study
+represents the origin point of $\Phi_2$ . Then, each UE
+in $\Phi_1$ chooses the closest UE in $\Phi_2$ to assist it in relaying
+its message to the serving BS. Hence, similar to source-to-
+destination distance, the distribution of the source-to-relay
+distance $r_2$ between the $i^{th}$ UE and its associated relaying UE
+can be also shown to be Rayleigh distributed from the null probability of a two dimensional PPP. Therefore,
+\begin{equation*}
+f_{r_1}(r_1) = 2\pi\lambda_1r_1e^{-\lambda_1\pi r_1^2},
+\end{equation*}
+\begin{equation}
+f_{r_2}(r_2) = 2\pi\lambda_2r_2e^{-\lambda_2\pi r_2^2}
+\end{equation}
 
+\begin{thm}{Cooperation Probabilities.}
+The probability of
+deploying user-assisted relaying for a randomly located active
+user within a cell can be evaluated as follows:
+\begin{itemize}
+\item[i.] For policy $E_2$
+\begin{equation}
+\rho_2 = \int_{-\pi/2}^{-\pi/3}\frac{2\lambda_2 cos^2\psi_0}{\pi(\lambda_1+4\lambda_2cos^2\psi_0)}d\psi_0 + \int_{\pi/3}^{\pi/2}\frac{2\lambda_2 cos^2\psi_0}{\pi(\lambda_1+4\lambda_2cos^2\psi_0)}d\psi_0 + \frac{\lambda_2}{3(\lambda_1+\lambda_2)}
+\end{equation}
+\item[ii.] For policy $E_3$
+\begin{align*}
+\rho_3 &= \int_0^2 f_{\beta}(z)\int_{-\pi/2}^{-cos^{-1}(z/2)}\frac{2\lambda_2 cos^2\psi_0}{\pi(\lambda_1+4\lambda_2cos^2\psi_0)}d\psi_0 dz \\ 
+&+ \int_0^2 f_{\beta}(z)\int^{\pi/2}_{cos^{-1}(z/2)}\frac{2\lambda_2 cos^2\psi_0}{\pi(\lambda_1+4\lambda_2cos^2\psi_0)}d\psi_0 dz \\ &+\int_0^2 f_{\beta}(z)\frac{\lambda_2 z^2 cos^{-1}(z/2)}{\pi(\lambda_1+\lambda_2z^2)}dz \\ 
+&+ \int_2^{\infty} f_{\beta}(z)\int_{-\pi/2}^{\pi/2}\frac{2\lambda_2 cos^2\psi_0}{\pi(\lambda_1+4\lambda_2cos^2\psi_0)}d\psi_0 dz
+\end{align*}
+where $\beta = \bigg(\frac{g_{sr}}{g_{sd}}\bigg)^{1/\alpha}$ and $f_{\beta}(z)$ is pdf of $\beta$ which can be shown to be 
+\begin{equation}
+f_{\beta}(z) = \frac{\alpha z^{\alpha-1}}{(1+z^{\alpha})^2}
+\end{equation}
+\end{itemize}
+\end{thm}
+\begin{proof}
+\begin{itemize}
+\item[i.] 
+\begin{align*}
+\rho_2 &= \mathbb{P}\{E_2\} \\
+&= \mathbb{P}\{r_2 \leq r_1, r_1^2+r_2^2-2r_1r_2cos\psi_0 \leq r_1^2\} \\
+&= \mathbb{P}\{r_2 \leq r_1, r_2 \leq 2 r_1 cos\psi_0 \} \\
+\end{align*}
+when $|\psi_0|<\pi/3, ~ r_1 < 2r_1cos\psi_0  \Rightarrow \text{ if } r_2 < r_1 \text{, $r_2$ satisfies both inequalities.}$ Accordingly, we define $\mathcal{E}_1$ and $\mathcal{E}_2$ as follows
+\begin{align*}
+\mathcal{E}_1 &= 2\pi\lambda_1 \lambda_2 \int_0^\infty \int_0^{2r_1 cos\psi_0}r_1r_2e^{-\pi(\lambda_1 r_1^2 + \lambda_2 r_2^2)}dr_2 dr_1 \\
+&= \frac{2\lambda_2 cos^2\psi_0}{\pi(\lambda_1+4\lambda_2cos^2\psi_0)} \\
+\mathcal{E}_2 &= 2\pi\lambda_1 \lambda_2 \int_0^\infty \int_0^{r_1}r_1r_2e^{-\pi(\lambda_1 r_1^2 + \lambda_2 r_2^2)}dr_2 dr_1 \\
+&= \frac{\lambda_2}{2\pi(\lambda_1+\lambda_2)}
+\end{align*}
+ 
+\begin{align*}
+\text{Now, }\rho_2 &= \int_{-\pi/3}^{\pi/3} \mathcal{E}_2 d\psi_0 + 2\int_{\pi/3}^{\pi/2} \mathcal{E}_1d\psi_0 \\
+&=  \frac{\lambda_2}{3(\lambda_1+\lambda_2)} + 2\int_{\pi/3}^{\pi/2} \mathcal{E}_1d\psi_0
+\end{align*} 
 
+\item[ii.]
+\begin{align*}
+\rho_3 &= \mathbb{P}\{E_3\} \\
+&= \mathbb{P}\{r_2 \leq \bigg(\frac{g_{sr}}{g_{sd}} \bigg)^{1/\alpha}r_1, r_1^2+r_2^2-2r_1r_2cos\psi_0 \leq r_1^2\} \\
+&= \mathbb{P}\{r_2 \leq \beta r_1, r_2 \leq 2 r_1 cos\psi_0 \} \\
+&= \mathbb{P}\{r_2 \leq 2 r_1 cos\psi_0 \} \qquad \text{ for } \beta > 2 \\
+&= \mathbb{P}\{r_2 \leq \beta r_1\} \qquad \text{ for } \beta < 2  \text{ and } |\psi_0| < cos^{-1}(\beta/2) \\
+&= \mathbb{P}\{r_2 \leq 2 r_1 cos\psi_0 \} \qquad \text{ for } \beta < 2 \text{ and } cos^{-1}(\beta/2) < |\psi_0| <  \pi/2 \\
+\therefore \rho_3&= 2 \int_0^2 f_{\beta}(z)\int^{\pi/2}_{cos^{-1}(z/2)}\mathcal{E}_1 d\psi_0 dz +\int_0^2 f_{\beta}(z)\int_{-cos^{-1}(z/2)}^{cos^{-1}(z/2)}\mathcal{E}_3 d\psi_0dz \\&+ \int_2^{\infty} f_{\beta}(z)\int_{-\pi/2}^{\pi/2}\mathcal{E}_1 d\psi_0 dz
+\end{align*}
 
+$\mathcal{E}_1$ is defined in part i. of the proof and  $\mathcal{E}_3 = \frac{\lambda_2 z^2}{2\pi(\lambda_1+\lambda_2z^2)}$ which is nothing but $\mathcal{E}_2$ with $\lambda_2 = \lambda_2z^2$. $f_\beta(z)$, the pdf of $\beta$, can be obtained as follows
+
+\begin{align*}
+F_\beta(z) &= \mathbb{P}\bigg\{ \bigg( \frac{x_1}{x_2}\bigg)^{1/\alpha} \leq z \bigg\} = \mathbb{P} \{ x_1\leq z^\alpha x_2\} \\
+&= \int_0^\infty \int_0^{z^\alpha x_2} e^{-(x_1+x_2)} dx_1dx_2 \quad \text{ since } g_{sr},g_{sd} \sim Exp(1) \\
+&= 1-\frac{1}{1+z^\alpha}, \qquad z \in [0,\infty)
+\end{align*}
+The pdf $f_\beta(z)$ is then obtained by differentiating $F_\beta(z)$ :
+\begin{equation*}
+    f_\beta(z) = \frac{dF_\beta(z)}{dz} = \frac{\alpha z^{\alpha-1}}{(1+z^\alpha)^2} \quad z \in [0,\infty)
+\end{equation*}
+\end{itemize}
+\end{proof}
 \section{Interference Analysis} \label{sec:interference}
 
 \section{Simulations and Results}
