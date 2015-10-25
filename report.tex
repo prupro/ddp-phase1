@@ -80,12 +80,22 @@ Mumbai - 400076\\
 
 
 \begin{abstract}
-Currently, there are 31,254 level crossings and around 40\% of them are unmanned. The unmanned
-crossings are responsible for the maximum number of train accidents. The m
-ain objective of this project
-is to reduce the number of such accidents by building a reliable system th
-at can consistently detect a train
-moving towards the crossing and sets off an alarm at the crossing.
+We use stochastic geometry to analyze the performance of a partial decode-and-forward (PDF) relaying scheme applied in a user-assisted relaying setting, where an active user relays data through another idle user in uplink cellular communication. We present the geometric model of a network deploying user-assisted relaying and propose two geometric cooperation policies for fast and slow fading channels. We analytically derive the cooperation probability for both policies. This cooperation
+probability is further used in the analytical derivation of the
+moments of inter-cell interference power caused by system-wide
+deployment of this user-assisted PDF relaying. We then model the
+inter-cell interference power statistics using the Gamma distribution by matching the first two moments analytically derived. This
+cooperation and interference analysis provides the theoretical
+basis for quantitatively evaluating the performance impact of
+user-assisted relaying in cellular networks. We then numerically
+evaluate the average transmission rate performance and show
+that user-assisted relaying can significantly improve per-user
+transmission rate despite of increased inter-cell interference. This
+transmission rate gain is significant for active users near the
+cell edge and further increases with higher idle user density,
+supporting user-assisted relaying as a viable solution to crowded
+population areas.
+
 \end{abstract}
 
 
@@ -99,26 +109,51 @@ moving towards the crossing and sets off an alarm at the crossing.
 
 
 \section{Introduction}
-The solution to this problem is to build a system that can turn on an alarm at the crossing at least 1 min
-before the train reaches the crossing and turn off the alarm when the train passes the crossing. To do this, we
-designed a sensor unit, using two inductive proximity sensors, that can detect a train and its direction,
-and an alarm unit. The sensor unit will be placed 1.5 km away from the crossing while the alarm unit will be
-placed at the crossing. When a train passes over the two sensors of the sensor unit, it detects the direction
-of the train, counts the number of axles\footnotemark\footnotetext{We actually count the number of wheels on one side, 4 wheels on each side $\implies$ 4 axles}($n$) and sends this information to the alarm unit. If the train is moving
-towards the crossing, alarm unit turns on the alarm. When the train passes over the single sensor placed at the crossing,
-the alarm unit down counts the number of axles from $n$ and turns off the alarm when the count reaches 0.
-\\ \\
-In the next sections we present the block and circuit diagrams of various units of the system, different
-algorithms used to detect the direction of train and also how false alarm cases are handled.
+
 \subsection{Motivation}
-\subsection{Work Reported}
+Mobile subscribers operators and continual driven customer by the increasing demand for number new and
+ of
+better services place pressing requirements on the underlying
+wireless technologies to provide high data rates and wide
+coverage. Future generation networks that promise higher data
+rates and multifold increase in system capacity include 3GPP
+Long Term Evolution−Advanced (LTE-A, 4G) and the emerg-
+ing 5G systems. The fourth generation (4G) wireless systems
+were designed to fulfill the requirements of the International
+Mobile Telecommunications − Advanced (IMT-A). LTE as
+a practical 4G wireless system has been recently deployed
+in some countries and LTE-A is expected to be deployed
+soon around the globe [1]. It is well established that 4G
+networks have just reached the theoretical limit on the data
+rate with current technologies. These technologies are being
+complemented in the fifth generation (5G) wireless systems
+by designing and developing new radio concepts to accommo-
+date higher data rates, larger network capacity, higher energy
+efficiency, and higher mobility necessary to meet the new
+and challenging requirements of new wireless applications.
+5G wireless systems are expected to support peak data rate
+of 10 Gb/s for low mobility and 1 Gb/s for high mobility.
+These networks are expected to be standardized and deployed around and beyond 2020. Various promising technologies are
+proposed for 5G wireless communication systems such as
+massive MIMO, energy-efficient communications, Device-to-
+Device (D2D) communications, millimeter-wave (mmWave),
+and cognitive radio networks [1]–[3].
+
 \subsection{Organization of this report}
+All links/references to equation or figures are clickable.
 \pagenumbering{arabic}
 
 \section{Partial Decode-and-Forward Relaying}
 In this section, we discuss the signal design, channel model and achievable rate of PDF relaying scheme.
 \subsection{Signal Design}
 Consider a source $\mathcal{S}$, its relay $\mathcal{R}$ and the destination $\mathcal{D}$. Each transmission block is divided into two phases: 1. broadcast transmission in which $\mathcal{S}$ broadcasts to both $\mathcal{R}$ and $\mathcal{D}$. 2. multiple access transmission in which both $\mathcal{S}$ and $\mathcal{R}$ transmit to $\mathcal{D}$. In each block of transmission, $\mathcal{S}$ splits its information into a common part and a private part. The common part is encoded via $U_s^b$ in the 1st phase and $U_s^{m_1}$ in the 2nd phase; and the private part is encoded via $V_s^{m_2}$ in the 2nd phase. The relay $\mathcal{R}$ decodes the information sent by $\mathcal{S}$ in first phase and encodes the same information using $U_s^{m_1}$ in the 2nd phase. \\ 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height = 2in,width=5in,angle=00]{figures/pdfRelaying.png}
+\caption{\small Transmission phases in PDF relaying}
+\label{fig:sysModel}
+\end{center}
+\end{figure}
 The signals transmitted by $\mathcal{R}$ and $\mathcal{S}$ are as follows:
 \begin{align}
 \text{Phase 1:}\quad x^b_s &= \sqrt{P_s^b} U_s^b, \label{eq:tranSig1}\\
@@ -168,13 +203,6 @@ serves multiple users. Each of the users uses a distinct frequency
 block. Each user is served by the single base station that
 is closest to that user.
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[height = 2in,width=4in,angle=00]{figures/8w_no_miss.png}
-\caption{\small pulses on s1, s2 as train crosses the sensor unit}
-\label{fig:sysModel}
-\end{center}
-\end{figure}
 
 \par We use stochastic geometry to
 describe the uplink cellular network as shown in Fig.~\ref{fig:sysModel}. We
@@ -184,8 +212,8 @@ single mobile in a given resource block, the BS should be closer to its served U
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[height = 2in,width=4in,angle=00]{figures/8w_no_miss.png}
-\caption{\small pulses on s1, s2 as train crosses the sensor unit}
+\includegraphics[height = 3in,width=4in,angle=00]{figures/netLayoutPaper.png}
+\caption{\small Sample layout of a cellular network ($\lambda_2 = 2\lambda_1$)}
 \label{fig:netLayout}
 \end{center}
 \end{figure}
@@ -358,15 +386,15 @@ when $|\psi_0|<\pi/3, ~ r_1 < 2r_1cos\psi_0  \Rightarrow \text{ if } r_2 < r_1 \
 \end{align*} 
 
 \item[ii.]
-\begin{align*}
+\begin{align}
 \rho_3 &= \mathbb{P}\{E_3\} \\
 &= \mathbb{P}\{r_2 \leq \bigg(\frac{g_{sr}}{g_{sd}} \bigg)^{1/\alpha}r_1, r_1^2+r_2^2-2r_1r_2cos\psi_0 \leq r_1^2\} \\
 &= \mathbb{P}\{r_2 \leq \beta r_1, r_2 \leq 2 r_1 cos\psi_0 \} \\
 &= \mathbb{P}\{r_2 \leq 2 r_1 cos\psi_0 \} \qquad \text{ for } \beta > 2 \\
 &= \mathbb{P}\{r_2 \leq \beta r_1\} \qquad \text{ for } \beta < 2  \text{ and } |\psi_0| < cos^{-1}(\beta/2) \\
 &= \mathbb{P}\{r_2 \leq 2 r_1 cos\psi_0 \} \qquad \text{ for } \beta < 2 \text{ and } cos^{-1}(\beta/2) < |\psi_0| <  \pi/2 \\
-\therefore \rho_3&= 2 \int_0^2 f_{\beta}(z)\int^{\pi/2}_{cos^{-1}(z/2)}\mathcal{E}_1 d\psi_0 dz +\int_0^2 f_{\beta}(z)\int_{-cos^{-1}(z/2)}^{cos^{-1}(z/2)}\mathcal{E}_3 d\psi_0dz \\&+ \int_2^{\infty} f_{\beta}(z)\int_{-\pi/2}^{\pi/2}\mathcal{E}_1 d\psi_0 dz
-\end{align*}
+\therefore \rho_3&= 2 \int_0^2 f_{\beta}(z)\int^{\pi/2}_{cos^{-1}(z/2)}\mathcal{E}_1 d\psi_0 dz +\int_0^2 f_{\beta}(z)\int_{-cos^{-1}(z/2)}^{cos^{-1}(z/2)}\mathcal{E}_3 d\psi_0dz \\&+ \int_2^{\infty} f_{\beta}(z)\int_{-\pi/2}^{\pi/2}\mathcal{E}_1 d\psi_0 dz \label{eq:corrected}
+\end{align}
 
 $\mathcal{E}_1$ is defined in part i. of the proof and  $\mathcal{E}_3 = \frac{\lambda_2 z^2}{2\pi(\lambda_1+\lambda_2z^2)}$ which is nothing but $\mathcal{E}_2$ with $\lambda_2 = \lambda_2z^2$. $f_\beta(z)$, the pdf of $\beta$, can be obtained as follows
 
@@ -475,6 +503,39 @@ k_i = \frac{(\mathbb{E}[\mathcal{Q}_i])^2}{\text{var}[\mathcal{Q}_i]}, \theta_i 
 \end{equation}
 
 \section{Simulations and Results}
+Simulations were done on MATLAB. 
+Given $\lambda_1$ and $\lambda_2$, 
+
+\subsection{Simulation Setting}
+
+$P_{s,i} = P_{r,i}; P_{s,i}^b = P_{s,i}^m$ and $P_{s,i}^{m_1} = \beta_1 P_{s,i}^m$ and $P_{s,i}^{m_2} = (1-\beta_1) P_{s,i}^m$ are allocated optimally to maximize the transmission rate of the active user. To do this, rate is expressed as a function of $\beta_1$ and minimized negative rate using MATLAB tool \textit{fminrnd}
+
+\subsection{Results}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height = 3in,width=4in,angle=00]{figures/coopP.png}
+\caption{\small Cooperation probabilities of $E_2$, $E_3$ versus user density ratio}
+\label{fig:sysModel}
+\end{center}
+\end{figure}
+From the above graph we can see that cooperation probability of both policies increases with user density ratio($\lambda_2/\lambda_1$) and reach a maximum of 0.5 for very large user density ratio. Also, the analytic and simulations results closely match. 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height = 3in,width=4in,angle=00]{figures/corrected.png}
+\caption{\small Corrected cooperation probability of $E_3$}
+\label{fig:sysModel}
+\end{center}
+\end{figure}
+In the published paper, the analytic result for cooperation probability of $E_3$ has an error. The correction being using $\mathcal{E}_3$ instead of $\mathcal{E}_2$ in eq.~\ref{eq:corrected}. The corrected analytic result matches the simulation result as can be seen in the above figure. 
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height = 2.8in,width=4in,angle=00]{figures/rates.png}
+\caption{\small Average rate per user; $\lambda = \lambda_2/\lambda_1$}
+\label{fig:sysModel}
+\end{center}
+\end{figure}
+From the above figure, we can clearly see that average rate per user has increased when PDF relaying is deployed over the whole network. The rate also increases as user density ratio is increased but we caan't sure whether the rate keeps increasing with $\lambda$. It might happen that the rate decreases for very large user ratio density due to increase in interference.
 
 \section{Conclusions and Future Work}
 
