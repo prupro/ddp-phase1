@@ -208,7 +208,7 @@ Y_{d,i}^m = h^{(i)}_{sd}x_{s,i}^m + h^{(i)}_{rd}x_{r,i}^m+ I_{d,i}^m + Z_{d,i}^m
 
 \subsection{Interference}
 To model interference, we assume prefect frame synchronization. LTE-Advanced imposes very strict requirements on synchronization anyway. Interference at the relay during first phase and at the destination(BS) during first and second phases can be expressed as
-\begin{equation*}
+\begin{equation*} 
 I_{r,i}^b = \sum_{k \neq i} B_k h^{(k,i)}_{sr} x_{s,k}^b + (1-B_k)h_{sr}^{(k,i)}x_{s,k} ,
 \end{equation*}
 \begin{equation*}
@@ -346,9 +346,9 @@ f_{\beta}(z) = \frac{\alpha z^{\alpha-1}}{(1+z^{\alpha})^2}
 \end{align*}
 when $|\psi_0|<\pi/3, ~ r_1 < 2r_1cos\psi_0  \Rightarrow \text{ if } r_2 < r_1 \text{, $r_2$ satisfies both inequalities.}$ Accordingly, we define $\mathcal{E}_1$ and $\mathcal{E}_2$ as follows
 \begin{align*}
-\mathcal{E}_1 &= 2\pi\lambda_1 \lambda_2 \int_0^\infty \int_0^{2r_1 cos\psi_0}r_1r_2e^{-\pi(\lambda_1 r_1^2 + \lambda_2 r_2^2)}dr_2 dr_1 \\
+\mathcal{E}_1 &= (2\pi)^2\lambda_1 \lambda_2 \int_0^\infty \int_0^{2r_1 cos\psi_0}r_1r_2e^{-\pi(\lambda_1 r_1^2 + \lambda_2 r_2^2)}dr_2 dr_1 \\
 &= \frac{2\lambda_2 cos^2\psi_0}{\pi(\lambda_1+4\lambda_2cos^2\psi_0)} \\
-\mathcal{E}_2 &= 2\pi\lambda_1 \lambda_2 \int_0^\infty \int_0^{r_1}r_1r_2e^{-\pi(\lambda_1 r_1^2 + \lambda_2 r_2^2)}dr_2 dr_1 \\
+\mathcal{E}_2 &= (2\pi)^2\lambda_1 \lambda_2 \int_0^\infty \int_0^{r_1}r_1r_2e^{-\pi(\lambda_1 r_1^2 + \lambda_2 r_2^2)}dr_2 dr_1 \\
 &= \frac{\lambda_2}{2\pi(\lambda_1+\lambda_2)}
 \end{align*}
  
@@ -382,6 +382,97 @@ The pdf $f_\beta(z)$ is then obtained by differentiating $F_\beta(z)$ :
 \end{itemize}
 \end{proof}
 \section{Interference Analysis} \label{sec:interference}
+User-assisted relaying actually increases the amount of out-
+of-cell interference in the network as some idle users are now
+transmitting when relaying information of active users. It is
+therefore necessary to understand this out-of-cell interference
+power, particularly its distribution, in order to assess the overall
+impact of user-assisted relaying on system performance.
+\subsection{First Two Moments of Interference Power} Since it is difficult to describe the
+exact distribution of out-of-cell interference power, here we
+choose to model the interference power to the cell under study
+as a Gamma distribution by fitting the first two moments of
+the interference power analytically developed using stochastic
+geometry of the field of interferers outside that cell.
+The expressions for interference power can be developed from Eqs.~\ref{eq:interferences}. 
+\begin{align}
+\mathcal{Q}_{d,i}^b &= \sum_{k\neq i}B_k \Big |h_{sd}^{(k,i)}\Big|^2P_{s,k}^b + (1-B_k)\Big|h_{sd}^{(k,i)}\Big|^2P_{s,k} \\
+\mathcal{Q}_{d,i}^m &= \sum_{k\neq i}\bigg[B_k\bigg(\Big|h_{sd}^{(k,i)}\Big|^2 P_{s,k}^m+\Big|h_{rd}^{(k,i)}\Big|^2 P_{r,k}^m\bigg)\bigg] + (1-B_k) \Big| h_{sd}^{(k,i)}\Big|^2 P_{s,k} \\
+\mathcal{Q}_{r,i} &= \sum_{k\neq i}B_k \Big|h_{sr}^{(k,i)}\Big|^2P_{s,k}^b + (1-B_k)\Big|h_{sr}^{(k,i)}\Big|^2P_{s,k} 
+\end{align}
+\begin{thm}{Interference Power Statistics} \label{thm:thm2}
+For network-wide
+deployment of user-assisted relaying, the out-of-cell interfer-
+ence generated at the destination BS and the relaying UE have
+the following statistics:
+
+\begin{itemize}
+\item[i.] 
+The first two moments, mean and variance, of interference
+power at the destination BS during the 1st and 2nd phase,
+respectively, are
+\begin{equation}
+\mathbb{E}[\mathcal{Q}_{d,i}^b] = \frac{2\pi\lambda_1\zeta_1}{\alpha-2}R_c^{2-\alpha}, \qquad \mathbb{E}[\mathcal{Q}_{d,i}^m] = \frac{2\pi\lambda_1\zeta_3}{\alpha-2}R_c^{2-\alpha}
+\end{equation}
+\begin{equation}
+\text{var}[\mathcal{Q}_{d,i}^b] = \frac{\pi\lambda_1\zeta_2}{\alpha-1}R_c^{2(1-\alpha)}, \qquad \text{var}[\mathcal{Q}_{d,i}^m] = \frac{\pi\lambda_1\zeta_4}{\alpha-1}R_c^{2(1-\alpha)}
+\end{equation}
+
+\item[ii.]
+The first two moments, mean and variance, of interfer-
+ence power at the idle UE associated as a relay with the ith
+active UE are
+\begin{equation}
+\mathbb{E}[\mathcal{Q}_{r,i}] = \lambda_1\zeta_1 \int_0^{2\pi}\int_{R_c}^\infty (r^2+D^2-2rDcos\theta)^{\alpha/2}rdrd\theta
+\end{equation}
+\begin{equation}
+\text{var}[\mathcal{Q}_{r,i}] = \lambda_1\zeta_2 \int_0^{2\pi}\int_{R_c}^\infty (r^2+D^2-2rDcos\theta)^{\alpha/2}rdrd\theta
+\end{equation}
+
+\begin{align} \label{eq:zeta1}
+\text{where} \quad  \zeta_1 &= \rho_1 P_{s,k}^b +(1-\rho_1)P_{s,k} \\
+                \zeta_2 &= 2[\rho_1(P_{s,k}^b)^2 + (1-\rho_1)P_{s,k}^2],\\
+                \zeta_3 &= \rho_1 (P_{s,k}^m+P_{r,k}^m) +(1-\rho_1)P_{s,k}, \\
+                \zeta_4 &= 2[\rho_1(P_{s,k}^m+P_{r,k}^m)^2 + (1-\rho_1)P_{s,k}^2 -\rho_1P_{s,k}^mP_{r,k}^m] \label{eq:zeta4}
+\end{align}
+\end{itemize}
+\end{thm}
+\begin{proof}
+\begin{align*}
+\mathbb{E}[\mathcal{Q}_{d,i}^b] &= -\frac{\partial\mathcal{L}_{\mathcal{Q}_{d,i}^b}(s)}{\partial s}\bigg\rvert_{s=0}, \\
+\text{var}[\mathcal{Q}_{d,i}^b] &= -\frac{\partial^2\mathcal{L}_{\mathcal{Q}_{d,i}^b}(s)}{\partial s^2}\bigg\rvert_{s=0} - \Big(\mathbb{E}\big[\mathcal{Q}_{d,i}^b \big] \Big)^2
+\end{align*}
+where $\mathcal{L}_{\mathcal{Q}_{d,i}^b}(s)$ is the Laplace transform of $\mathcal{Q}_{d,i}^b$ and $R_c = 1/2\sqrt{\lambda_1}$ is the cell radius. Means and variances of $\mathcal{Q}_{d,i}^m$, $\mathcal{Q}_{r,i}$ can be calculated similarly.
+\end{proof}
+\par From the above results for interference power statistics, the interference power is directly proportional to both
+the active users density, $\lambda_1$ , and the transmission power levels
+represented by $\zeta_i , i \in [1:4] $ in Eqs.~\ref{eq:zeta1} - ~\ref{eq:zeta4}
+
+\subsection{Modelling Interference Power Distribution}
+A parameterized probability distribution, which includes a
+wide variety of curve shapes, is useful in the representation of
+data when the underlying model is unknown or difficult to obtain in closed form. A parameterized probability distribution is
+usually characterized by its flexibility, generality, and simplicity. Although distributions are not necessarily determined by
+their moments, the moments often provide useful information
+and are widely used in practice. It is shown that the Gamma
+distribution is a good approximation for the interference when
+the point under study is closer to the cell center, but fails
+to represent the actual interference distribution whenever the
+point under study is exactly at the cell edge. We use the same
+approach here and match a Gamma distribution to the first
+two moments of the interference power terms derived earlier
+in Theorem~\ref{thm:thm2}.
+\subsubsection{Gamma Distribution}
+The Gamma distribution is specified by a shape parameter $k$ and a scale parameter $\theta$. The pdf of a Gamma distributed RV $\gamma[k,\theta]$ is defined as 
+\begin{equation*}
+F_\gamma(q|k,\theta) = \frac{q^{k-1}e^(-q/\theta)}{\theta^k\Gamma(k)}
+\end{equation*}
+where the Gamma function $\Gamma(t)$ is defined as $\Gamma(t) = \int_0^{\infty}x^{t-1}e^{-x}dx$. The mean and variance of $\gamma[k,\theta]$ are $k\theta$ and $k\theta^2$ respectively.
+\par
+Since we know mean and variance of interference powers, we can estimate the shape and scale parameters by using the formulae:
+\begin{equation}
+k_i = \frac{(\mathbb{E}[\mathcal{Q}_i])^2}{\text{var}[\mathcal{Q}_i]}, \theta_i =\frac{\text{var}[\mathcal{Q}_i]}{\mathbb{E}[\mathcal{Q}_i]}
+\end{equation}
 
 \section{Simulations and Results}
 
