@@ -145,7 +145,7 @@ The above expression is true only if $\mathcal{D}$ has knowledge about the phase
 
 \subsection{Achievable Rate}
 With transmit signals in equations~\ref{eq:tranSig1}-~\ref{eq:tranSig3} and joint ML decoding rule at $\mathcal{D}$, the achievable rate for this relaying scheme is:
-\begin{equation}
+\begin{equation} \label{eq:rate}
 R_{PDF} \leq min(C_1+C_2,C_3)
 \end{equation}
 \begin{align}
@@ -178,7 +178,7 @@ is closest to that user.
 describe the uplink cellular network as shown in Fig.~\ref{fig:sysModel}. We
 assume that the active users in different cells that use the same resource block and cause interference to each other are distributed on a two-dimensional plane according to a homogeneous and stationary Poisson point process (PPP)
 $\Phi_1$ with intensity $\lambda_1$. The set of user equipments(UEs) that are in idle state and can participate in relaying are distributed according to another PPP $\Phi_2$ with intensity $\lambda_2$. We assume $\Phi_1$ and $\Phi_2$ are independent. Furthermore, under the assumption that each BS serves a
-single mobile in a given resource block, the BS should be closer to its served UE than to any other UE. Therefore we assume each BS is uniformly distributed in the Voronoi cell of its served UE. Fig.~\ref{fig:netLayout} shows an example layout of the proposed model.
+single mobile in a given resource block, the BS should be closer to its served UE than to any other UE. Therefore we assume each BS is uniformly distributed in the Voronoi cell of its served UE. Fig.~\ref{fig:netLayout} shows an example layout of the model.
 
 \begin{figure}[H]
 \begin{center}
@@ -187,6 +187,82 @@ single mobile in a given resource block, the BS should be closer to its served U
 \label{fig:netLayout}
 \end{center}
 \end{figure}
+
+\subsection{Channel Model}
+In this section, we describe the channel model when PDF relaying is deployed in cellular network. In this case, there will be out-of-cell inteference in addition to noise. The interference is due to frequency reuse in other cells.
+\par Consider $i^{th}$ cell, we model the received signals at the relay and base station in this cell during 1st phase as
+\begin{equation*}
+Y_{r,i}^b = h^{(i)}_{sr}x_{s,i}^b + I_{r,i}^b + Z_{r,i}^b,
+\end{equation*}
+\begin{equation}
+Y_{d,i}^b = h^{(i)}_{sd}x_{s,i}^b + I_{d,i}^b + Z_{d,i}^b
+\end{equation}
+where $I_{r,i}^b$ and $I_{d,i}^b$ represent the interference received at the $i^{th}$ relay and destination. 
+\par 
+In second phase of the transmission, the received signal at the BS can be modelled as 
+\begin{equation}
+Y_{d,i}^m = h^{(i)}_{sd}x_{s,i}^m + h^{(i)}_{rd}x_{r,i}^m+ I_{d,i}^m + Z_{d,i}^m
+\end{equation}
+
+\subsection{Interference}
+To model interference, we assume prefect frame synchronization. LTE-Advanced imposes very strict requirements on synchronization anyway. Interference at the relay during first phase and at the destination(BS) during first and second phases can be expressed as
+\begin{equation*}
+I_{r,i}^b = \sum_{k \neq i} B_k h^{(k,i)}_{sr} x_{s,k}^b + (1-B_k)h_{sr}^{(k,i)}x_{s,k} ,
+\end{equation*}
+\begin{equation*}
+I_{d,i}^b = \sum_{k \neq i} B_k h_{sd}^{(k,i)} x^b_{s,k} + (1-B_k)h_{sd}^{(k,i)}x_{s,k},
+\end{equation*}
+\begin{equation} \label{eq:interferences}
+I_{d,i}^m = \sum_{k \neq i} B_k \Big(h_{sd}^{(k,i)} x^m_{s,k} + h_{rd}^{(k,i)} x^m_{r,k}\Big) + (1-B_k)h_{sd}^{(k,i)}x_{s,k}
+\end{equation}
+the summation is over all active users. Here, $h_{sd}^{(k,i)}$ and $h_{rd}^{(k,i)}$ , respectively, are the channel fading from the $k^{th}$ active UE in $\Phi_1$ and the associated relaying UE in $\Phi_2$ to the BS associated with the $i^{th}$ active UE in $\Phi_1$; and $h_{sr}^{(k,i)}$ is the channel fading from the $k^{th}$ active UE in $\Phi_1$ to the relaying UE associated with the $i^{th}$ active UE in $\Phi_1$.
+\par $B_k$ in above expressions is a Bernoulli random variable with success probability $\rho$. $B_k = 1$ is used to indicate the $k^{th}$ active UE's decision to exploit the help of another idle UE, a relay, and apply the relaying transmission strategy, and $B_k = 0$ indicates that the $k^{th}$ UE has no relay. In section~\ref{sec:coop}, we derive the cooperation probability $\rho$ for different cooperation policies.
+\par
+ For a given setting of nodes locations, based on the
+interference model in Eq.~\ref{eq:interferences}, we can use the fact
+that interference at either the relay or destination is the
+sum of an infinite number of signals undergoing independent fading from nodes distributed in the infinite 2-D plane and use the law of large numbers to approximate the interference as a complex Gaussian distribution.
+Also, since the transmitted codewords complex Gaussian with zero mean, mean of interference is zero. To fully characterize interference as a
+complex Gaussian distribution, we define their distributions as $ I_{d,i}^b \sim \mathcal{CN} (0,\mathcal{Q}_{d,i}^b), I_{d,i}
+^m \sim \mathcal{CN}(0,\mathcal{Q}_{d,i}^m),$ and $I_{r,i}^b \sim \mathcal{CN}
+(0,\mathcal{Q}_{r,i})$ with the variances derived later
+in Section~\ref{sec:interference}. The power of these interference terms which
+correspond to the variance of the Gaussian random variables
+are function of node locations and hence vary with different
+network realizations.
+
+\subsection{Equivalent Standard Channel Model}
+Using the interference model discussed above, we can convert the channel model in case of relaying into the standard form to capture the effects of
+interference into the channel fading as
+\begin{align*}
+\tilde{Y}_{r,i}^b &= \tilde{h}_{sr}^{(i)}x_{s,i}^b + \tilde{Z}_{r,i}^b, \\
+\tilde{Y}_{d,i}^b &= \tilde{h}_{sd}^{(i)}x_{s,i}^b + \tilde{Z}_{d,i}^b, \\
+\tilde{Y}_{d,i}^m &= \tilde{h}_{sd}^{(i)}x_{s,i}^m + \tilde{h}_{rd}^{(i)}x_{r,i}^m + \tilde{Z}_{d,i}^m
+\end{align*}
+where the new channel fading terms are defined as
+
+\begin{equation*}
+\tilde{h}_{sr}^{(i)} = \frac{h_{sr}^{(i)}}{\sqrt{\mathcal{Q}_{r,i} + \sigma^2}}, \quad \tilde{h}_{sd}^{(b,i)} = \frac{h_{sd}^{(i)}}{\sqrt{\mathcal{Q}_{d,i}^b + \sigma^2}} \quad
+\tilde{h}_{sd}^{(m,i)} = \frac{h_{sd}^{(i)}}{\sqrt{\mathcal{Q}_{d,i}^m + \sigma^2}},
+\quad \tilde{h}_{rd}^{(i)} = \frac{h_{rd}^{(i)}}{\sqrt{\mathcal{Q}_{d,i}^m + \sigma^2}}
+\end{equation*}
+and the noise terms are now all $\mathcal{CN}(0,1)$. Using these equivalent 
+standard channels, we can compute the transmission rate as in Eq.~\ref{eq:rate}
+
+\section{Cooperation Policies} \label{sec:coop}
+In this section, we look at three cooperation policies: an ideal policy $E_1$, a 
+pure geometric policy $E_2$ and a hybrid policy $E_3$ that defines whether an active UE should select an inactive UE to use it in PDF relaying. Also, expressions for cooperation probabilities of $E_2$ and $E_3$ are derived.
+\subsection{Ideal Policy $E_1$}
+The ideal cooperation policy $E_1$ requires the active UE nodes to know instantaneous  SINRs of the relay link($\mathcal{S}-\mathcal{R}$) and the
+direct link($\mathcal{S}-\mathcal{D}$). The policy is defined as 
+\begin{align*}
+E_1 &= \Big\{|\tilde{h}_{(sr)}^{(k)}|^2 \geq |\tilde{h}_{(sd)}^{(k)}|^2\Big\} \\
+&\backsimeq \Big\{ \frac{g_{sr}r_2^{-\alpha}}{\mathcal{Q}_{r,k}} \geq \frac{g_{sd}r_1^{-\alpha}}{\mathcal{Q}_{d,k}^b} \Big\}
+\end{align*}
+where $r_1$ and $r_2$ denote the direct distance
+between $\mathcal{S}$ and $\mathcal{D}$ and cooperation distance between $\mathcal{S}$ and $\mathcal{R}$, respectively and $\alpha$ is pathloss exponent. This event E1 identifies whether an idle UE will be associated as a relay for the $k^{th}$ UE and participate in transmission.
+
+\section{Interference Analysis} \label{sec:interference}
 
 \section{Simulations and Results}
 
