@@ -260,7 +260,34 @@ E_1 &= \Big\{|\tilde{h}_{(sr)}^{(k)}|^2 \geq |\tilde{h}_{(sd)}^{(k)}|^2\Big\} \\
 &\backsimeq \Big\{ \frac{g_{sr}r_2^{-\alpha}}{\mathcal{Q}_{r,k}} \geq \frac{g_{sd}r_1^{-\alpha}}{\mathcal{Q}_{d,k}^b} \Big\}
 \end{align*}
 where $r_1$ and $r_2$ denote the direct distance
-between $\mathcal{S}$ and $\mathcal{D}$ and cooperation distance between $\mathcal{S}$ and $\mathcal{R}$, respectively and $\alpha$ is pathloss exponent. This event E1 identifies whether an idle UE will be associated as a relay for the $k^{th}$ UE and participate in transmission.
+between $\mathcal{S}$ and $\mathcal{D}$ and cooperation distance between $\mathcal{S}$ and its closest idle UE, respectively and $\alpha$ is pathloss exponent. This event $E_1$ identifies whether an idle UE will be associated as a relay for the $k^{th}$ UE and participate in transmission. Noise variance $\sigma^2$ is ignored since interference dominates. 
+\par Since interference at relay and destination during first phase is more or less the same and $g_{sr}, g_{sd}$ are identically distributed, we can safely ignore them and propose a policy that depends only on distances.
+
+\subsection{Pure Geometric Policy $E_2$}
+This policy is defined as
+\begin{equation}
+E_2 = \{r_2\leq r_1, D \leq r_1 \}
+\end{equation}
+where $D$ is the distance between $\mathcal{R}$ and $\mathcal{D}$. In words, if source's(active UE's) nearest idle neighbour is in the intersection region of two circles of radius $r_1$ centered at source and destination, then that idle UE will be chosen to act as a relay.
+\par $E_2$ is more practical than policy $E_1$ in the sense that
+it does not require full knowledge of both the channel fading
+and the interference at the decision making node. Instead, it
+only requires the decision making nodes to know the distances
+from the active user to the nearest idle user and to the base
+station. It represents a practical decision making strategy for
+fast fading channels, requiring no knowledge of the channel
+fading. 
+\subsection{Hybrid Policy $E_3$}
+This policy is proposed for slow fading channels where small scale fading parameters estimation and their
+feedback to the decision making node is feasible. 
+\begin{equation}
+E_3 = \{g_{sd}r_1^{-\alpha} \leq g_{sr}r_2^{-\alpha}, D \leq r_1 \}
+\end{equation}
+Note that this cooperation policy is still independent from the
+interference as in the pure geometric cooperation policy $E_2$.
+
+
+
 
 \section{Interference Analysis} \label{sec:interference}
 

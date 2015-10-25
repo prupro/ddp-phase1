@@ -13,6 +13,8 @@
 \contentsline {subsection}{\numberline {3.4}Equivalent Standard Channel Model}{4}{subsection.3.4}
 \contentsline {section}{\numberline {4}Cooperation Policies}{5}{section.4}
 \contentsline {subsection}{\numberline {4.1}Ideal Policy $E_1$}{5}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Pure Geometric Policy $E_2$}{5}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Hybrid Policy $E_3$}{5}{subsection.4.3}
 \contentsline {section}{\numberline {5}Interference Analysis}{5}{section.5}
 \contentsline {section}{\numberline {6}Simulations and Results}{5}{section.6}
 \contentsline {section}{\numberline {7}Conclusions and Future Work}{5}{section.7}
