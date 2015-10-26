@@ -90,7 +90,7 @@ basis for quantitatively evaluating the performance impact of
 user-assisted relaying in cellular networks. We then numerically
 evaluate the average transmission rate performance and show
 that user-assisted relaying can significantly improve per-user
-transmission rate despite of increased inter-cell interference. This
+transmission rate despite the increased inter-cell interference. This
 transmission rate gain is significant for active users near the
 cell edge and further increases with higher idle user density,
 supporting user-assisted relaying as a viable solution to crowded
@@ -117,20 +117,14 @@ better services place pressing requirements on the underlying
 wireless technologies to provide high data rates and wide
 coverage. Future generation networks that promise higher data
 rates and multifold increase in system capacity include 3GPP
-Long Term Evolution−Advanced (LTE-A, 4G) and the emerg-
-ing 5G systems. The fourth generation (4G) wireless systems
-were designed to fulfill the requirements of the International
-Mobile Telecommunications − Advanced (IMT-A). LTE as
+Long Term Evolution-Advanced (LTE-A, 4G) and the emerging 5G systems. The fourth generation (4G) wireless systems were designed to fulfill the requirements of the International Mobile Telecommunications - Advanced (IMT-A). LTE as
 a practical 4G wireless system has been recently deployed
 in some countries and LTE-A is expected to be deployed
 soon around the globe. It is well established that 4G
 networks have just reached the theoretical limit on the data
 rate with current technologies. These technologies are being
 complemented in the fifth generation (5G) wireless systems
-by designing and developing new radio concepts to accommo-
-date higher data rates, larger network capacity, higher energy
-efficiency, and higher mobility necessary to meet the new
-and challenging requirements of new wireless applications.
+by designing and developing new radio concepts to accommodate higher data rates, larger network capacity, higher energy efficiency, and higher mobility necessary to meet the new and challenging requirements of new wireless applications.
 5G wireless systems are expected to support peak data rate
 of 10 Gb/s for low mobility and 1 Gb/s for high mobility.
 These networks are expected to be standardized and deployed around and beyond 2020. Various promising technologies are
@@ -138,6 +132,29 @@ proposed for 5G wireless communication systems such as
 massive MIMO, energy-efficient communications, Device-to-
 Device (D2D) communications, millimeter-wave (mmWave),
 and cognitive radio networks.
+\par 
+D2D and Relaying cooperative communications will play
+important roles in future generations wireless networks. D2D
+communications enable two proximity users to transmit signal
+directly without going through the base station; subsequently,
+5G wireless systems are expected to relax the restrictions on
+the need to route all user data through the core network. D2D
+communications can increase network spectrum utilization and
+energy efficiency, reduce transmission delay, offload traffic for
+the base station, and alleviate congestion in the cellular core
+networks, which make it a promising technology for future
+wireless systems. Relay-aided cooperative communi-
+cation techniques represent another promising technology that
+improves performance in poor coverage areas by enabling
+ubiquitous coverage even for users in the most unfavorable
+channel conditions. The latest release of the LTE standard
+allows the deployment of fixed wireless relays to help cell-
+edge mobiles. Yet, other advanced cellular relaying modes are
+expected in 5G systems to improve the topology and robustness
+of a cellular network and decrease power consumption. These
+new technologies include mobile relaying, multi-hop relaying,
+and user-equipment based (user-assisted) relaying enabled by
+D2D communications 
 
 \subsection{Organization of this report}
 This report is in further divided into 6 sections. The topics are organized as follows.
@@ -146,11 +163,11 @@ This report is in further divided into 6 sections. The topics are organized as f
  \par Section 4 contains policies to determine whether the nearest idle neighbour to the active UE can be picked as a relay. Two policies were proposed and analytic expressions for cooperation probabilities were derived.
  \par Section 5 Analytic expressions for interference powers were developed and shape and scale parameters of Gamma distribution that fits interference power statistics were calculated.
  \par Section 6 discusses the simulation setting and how it is different from the theoritical method and the values of parameter used in simulation were listed. It also has simulation results with brief explanations of the result.
- \par Section 7 lists three different topics I'm planning to work on during the second phase.
+ \par Section 7 lists three different topics I'm planning to work on during the second phase. \\
 All links/references to equation or figures in this report are clickable.
 
 \pagenumbering{arabic}
-
+\newpage
 \section{Partial Decode-and-Forward Relaying}
 In this section, we discuss the signal design, channel model and achievable rate of PDF relaying scheme.
 \subsection{Signal Design}
@@ -171,7 +188,7 @@ The signals transmitted by $\mathcal{R}$ and $\mathcal{S}$ are as follows:
 All codewords above are picked from independent Gaussian codebooks with zero mean and unit variance. \\ \\
 \textbf{Power Constraints:} Let $P_s$ and $P_r$ be the transmit powers of $\mathcal{S}$ and $\mathcal{R}$ respectively and $\alpha_1$ be the fraction of transmission time allocated to first phase, then the following average power constraints should to be satisfied:
 \begin{equation}
-\alpha_1 P_s^b + \alpha_2 P_s^m = Ps,\quad \alpha_2P_r^m = P_r
+\alpha_1 P_s^b + \alpha_2 P_s^m = P_s,\quad \alpha_2P_r^m = P_r
 \end{equation}
 where $\alpha_2 = 1-\alpha_1$
 
@@ -213,10 +230,10 @@ is closest to that user.
 
 
 \par We use stochastic geometry to
-describe the uplink cellular network as shown in Fig.~\ref{fig:sysModel}. We
+describe the uplink cellular network. We
 assume that the active users in different cells that use the same resource block and cause interference to each other are distributed on a two-dimensional plane according to a homogeneous and stationary Poisson point process (PPP)
 $\Phi_1$ with intensity $\lambda_1$. The set of user equipments(UEs) that are in idle state and can participate in relaying are distributed according to another PPP $\Phi_2$ with intensity $\lambda_2$. We assume $\Phi_1$ and $\Phi_2$ are independent. Furthermore, under the assumption that each BS serves a
-single mobile in a given resource block, the BS should be closer to its served UE than to any other UE. Therefore we assume each BS is uniformly distributed in the Voronoi cell of its served UE. Fig.~\ref{fig:netLayout} shows an example layout of the model.
+single mobile in a given resource block, the BS should be closer to its served UE than to any other UE. Therefore we assume each BS is uniformly distributed in the Voronoi cell of its served UE. Fig.~\ref{fig:netLayout} shows an example layout of the network.
 
 \begin{figure}[H]
 \begin{center}
@@ -228,7 +245,7 @@ single mobile in a given resource block, the BS should be closer to its served U
 
 \subsection{Channel Model}
 In this section, we describe the channel model when PDF relaying is deployed in cellular network. In this case, there will be out-of-cell inteference in addition to noise. The interference is due to frequency reuse in other cells.
-\par Consider $i^{th}$ cell, we model the received signals at the relay and base station in this cell during 1st phase as
+\par Consider $i^{th}$ active UE, we model the received signals at the relay and base station in this cell during 1st phase as
 \begin{equation*}
 Y_{r,i}^b = h^{(i)}_{sr}x_{s,i}^b + I_{r,i}^b + Z_{r,i}^b,
 \end{equation*}
@@ -260,7 +277,7 @@ the summation is over all active users. Here, $h_{sd}^{(k,i)}$ and $h_{rd}^{(k,i
 interference model in Eq.~\ref{eq:interferences}, we can use the fact
 that interference at either the relay or destination is the
 sum of an infinite number of signals undergoing independent fading from nodes distributed in the infinite 2-D plane and use the law of large numbers to approximate the interference as a complex Gaussian distribution.
-Also, since the transmitted codewords complex Gaussian with zero mean, mean of interference is zero. To fully characterize interference as a
+Also, since the transmitted codewords are complex Gaussian with zero mean, mean of interference is zero. To fully characterize interference as a
 complex Gaussian distribution, we define their distributions as $ I_{d,i}^b \sim \mathcal{CN} (0,\mathcal{Q}_{d,i}^b), I_{d,i}
 ^m \sim \mathcal{CN}(0,\mathcal{Q}_{d,i}^m),$ and $I_{r,i}^b \sim \mathcal{CN}
 (0,\mathcal{Q}_{r,i})$ with the variances derived later
@@ -285,7 +302,7 @@ where the new channel fading terms are defined as
 \quad \tilde{h}_{rd}^{(i)} = \frac{h_{rd}^{(i)}}{\sqrt{\mathcal{Q}_{d,i}^m + \sigma^2}}
 \end{equation*}
 and the noise terms are now all $\mathcal{CN}(0,1)$. Using these equivalent 
-standard channels, we can compute the transmission rate as in Eq.~\ref{eq:rate}
+standard channels, we can compute the transmission rate using Eq.~\ref{eq:rate}
 
 \section{Cooperation Policies and Probability} \label{sec:coop}
 In this section, we look at three cooperation policies: an ideal policy $E_1$, a 
@@ -299,7 +316,7 @@ E_1 &= \Big\{|\tilde{h}_{(sr)}^{(k)}|^2 \geq |\tilde{h}_{(sd)}^{(k)}|^2\Big\} \\
 &\backsimeq \Big\{ \frac{g_{sr}r_2^{-\alpha}}{\mathcal{Q}_{r,k}} \geq \frac{g_{sd}r_1^{-\alpha}}{\mathcal{Q}_{d,k}^b} \Big\}
 \end{align*}
 where $r_1$ and $r_2$ denote the direct distance
-between $\mathcal{S}$ and $\mathcal{D}$ and cooperation distance between $\mathcal{S}$ and its closest idle UE, respectively and $\alpha$ is pathloss exponent. This event $E_1$ identifies whether an idle UE will be associated as a relay for the $k^{th}$ UE and participate in transmission. Noise variance $\sigma^2$ is ignored since interference dominates. 
+between $\mathcal{S}$ and $\mathcal{D}$ and cooperation distance between $\mathcal{S}$ and its closest idle UE, respectively and $\alpha$ is pathloss exponent. This event $E_1$ identifies whether an idle UE will be associated as a relay for the $k^{th}$ UE and participate in transmission. Noise variance $\sigma^2$ is ignored since interference power dominates. 
 \par Since interference at relay and destination during first phase is more or less the same and $g_{sr}, g_{sd}$ are identically distributed, we can safely ignore them and propose a policy that depends only on distances.
 
 \subsubsection{Pure Geometric Policy $E_2$}
@@ -328,15 +345,13 @@ interference as in the pure geometric cooperation policy $E_2$.
 \subsection{Cooperation Probabilities}
 In this part of the section we derive cooperation probabilities $\rho_2$ and $\rho_3$ for the policies $E_2$ and $E_3$ respectively. For the ideal policy $E_1$, analytic evaluation of the
 cooperation probability is rather complicated because of the
-inter-dependency between the cooperation decision and con-
-sequential interference among different cells, hence we use
-numerical simulations instead. Consider a random BS and its associated active UE. 
+inter-dependency between the cooperation decision and consequential interference among different cells. Consider a random BS and its associated active UE. 
 The distribution of the distance
 $r_1$ between the $i^{th}$ UE and its associated BS can be shown to
 be Rayleigh distributed directly from the null probability of a
 two dimensional PPP distribution. 
-\par we can assume due to the stationarity of the
-PPP, i.e., location of the origin doesn't change the distribution of points, and the independence of $\Phi_2$ from BSs distribution that
+\par  Due to the stationarity of the
+PPP, i.e., location of the origin doesn't change the distribution of points, and the independence of $\Phi_2$ from BSs distribution we can assume that
 the location of the UE associated with the BS under study
 represents the origin point of $\Phi_2$ . Then, each UE
 in $\Phi_1$ chooses the closest UE in $\Phi_2$ to assist it in relaying
@@ -501,7 +516,7 @@ in Theorem~\ref{thm:thm2}.
 \subsubsection{Gamma Distribution}
 The Gamma distribution is specified by a shape parameter $k$ and a scale parameter $\theta$. The pdf of a Gamma distributed RV $\gamma[k,\theta]$ is defined as 
 \begin{equation*}
-F_\gamma(q|k,\theta) = \frac{q^{k-1}e^(-q/\theta)}{\theta^k\Gamma(k)}
+F_\gamma(q|k,\theta) = \frac{q^{k-1}e^{(-q/\theta)}}{\theta^k\Gamma(k)}
 \end{equation*}
 where the Gamma function $\Gamma(t)$ is defined as $\Gamma(t) = \int_0^{\infty}x^{t-1}e^{-x}dx$. The mean and variance of $\gamma[k,\theta]$ are $k\theta$ and $k\theta^2$ respectively.
 \par
@@ -515,33 +530,45 @@ k_i = \frac{(\mathbb{E}[\mathcal{Q}_i])^2}{\text{var}[\mathcal{Q}_i]}, \theta_i 
 \subsection{Simulation Setting}
 
 All simulations were done on a square region of side length 200m. 
-To generate active UEs in the region, the number of UEs is a realization of poisson RV with parameter $\lambda_1$ and these number of UEs were uniformly distributed in the square region. The same is done to generate idle UEs but now with parameter $\lambda_2$. I discarded the UEs whose Voronoi region extends to infinity. 
-\par In theory, the base station of a UE is uniformly distributed in the Voronoi region of UE but there is no easy practical way to uniformly pick a point from a polygonal area. One method is to triangulate the polygon and pick a random point in all the triangles. Now continue this with polygon generated by these points untill it converges to a single point. This is clearly quite complex to code in a reliable way so I've not implemented this method. The BSs are generated is - pick a number greater than or equal to the number of active UEs and distribute these number of BSs uniformly in the square region. Now go to each active UE and check if there are any BSs in its Voronoi region. If there are BSs, pick one of them and discard others. Since BSs are distributed uniformly over the whole region, the result is as good as picking a BSs in the Voronoi regions of UEs but there is a catch. In the theoritical method, each UE with a finite Voronoi region is gauranteed to have a BS whereas in the way that I'm generating, some UEs might not have a BS even though their Voronoi region is of finite area. Further, the UEs without a BS are not included in rate or cooperation probability analysis.
-\par For all simulations, we assume that UEs are using maximum power to transmit without any power control method applied.\label{sec:powerCon} In practice, UEs use power control techniques which in essence reduce the transmission power when the UE is closer to the BS and use maximum power when the mobile phone is at the cell edge. The powers used are - $P_{s,i} = P_{r,i}; P_{s,i}^b = P_{s,i}^m$ and $P_{s,i}^{m_1} = \beta_1 P_{s,i}^m$ and $P_{s,i}^{m_2} = (1-\beta_1) P_{s,i}^m$. Where $\beta_1$ is allocated optimally to maximize the transmission rate of the active user. To do this, rate is expressed as a function of $\beta_1$ and minimized negative rate using MATLAB tool \textit{fminrnd}. $\alpha_1$ - the fraction of total transmission time allocated 1st phase - is set to 0.5.
-
+To generate active UEs in the region, the number of UEs is taken as a realization of poisson RV with parameter $\lambda_1$ and these number of UEs were uniformly distributed in the square region. The same is done to generate idle UEs but with parameter $\lambda_2$. I discarded the UEs whose Voronoi region extends to infinity. 
+\par In theory, the base station of a UE is uniformly distributed in the Voronoi region of UE but there is no easy practical way to uniformly pick a point from a polygonal area. One method is to triangulate the polygonal Voronoi region, choose a triangle weighted by area, choose a point inthat triangle. This is clearly quite complex to code so I've not implemented this method. The method I followed to generate BSs is - pick a number greater than or equal to the number of active UEs and distribute these number of BSs uniformly in the square region. Now go to each active UE and check if there are any BSs in its Voronoi region. If there are BSs, pick one of them and associate it with the UE and discard other BSs in the Voronoi region. Since BSs are distributed uniformly over the whole region, the result is as good as picking BSs uniformly in the Voronoi regions of UEs which is what we wanted but there is a catch. In the theoritical method, each UE with a finite Voronoi region is guaranteed to have a BS whereas in the way that I'm generating, some UEs might not have a BS even though their Voronoi region is of finite area. Further, the UEs without a BS are not included in rate or cooperation probability analysis which is logical since without an associated BS, the UEs cannot considered active.
+\par For all simulations, we assume that UEs are using maximum power to transmit without applying any power control method.\label{sec:powerCon}  The powers used during the two phases of transmission are as follows
+\begin{itemize}
+\item Source and relays use equal power $\Rightarrow P_{s,i} = P_{r,i} $ 
+\item Source use equal power during broadcast and multicast phases $\Rightarrow P_{s,i}^b = P_{s,i}^m$ 
+\item $P_{s,i}^{m_1} = \beta_1 P_{s,i}^m$ and $P_{s,i}^{m_2} = (1-\beta_1) P_{s,i}^m$. Where $\beta_1$ is allocated optimally to maximize the transmission rate of the active user. To do this, rate is expressed as a function of $\beta_1$ and minimized negative rate using MATLAB tool \textit{fminrnd}.
+\end{itemize}
 \subsection{Results}
 \begin{figure}[H]
 \begin{center}
-\includegraphics[height = 3in,width=4in,angle=00]{figures/coopP.png}
-\caption{\small Cooperation probabilities of $E_2$, $E_3$ versus user density ratio}
-\label{fig:sysModel}
+\includegraphics[height = 4in,width=7in,angle=00]{figures/netLayoutSim.png}
+\caption{\small Network Layout}
+\label{fig:netLayoutSim}
 \end{center}
 \end{figure}
-From the above graph we can see that cooperation probability of both policies increases with user density ratio($\lambda_2/\lambda_1$) and reach a maximum of 0.5 for very large user density ratio. Also, the analytic and simulations results closely match. 
+This a sample network layout generated by using the method discussed in previous subsection. We can see that some of the UEs are well within the range but have no BS. Only UEs with a BS are considered active. A fraction active UEs have relays, these UEs use PDF relaying. Cooperation probability = number of active UEs with relays/total number of active UEs.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[height = 3in,width=4in,angle=00]{figures/corrected.png}
 \caption{\small Corrected cooperation probability of $E_3$}
-\label{fig:sysModel}
+\label{fig:correctedE3}
 \end{center}
 \end{figure}
 In the published paper, the analytic result for cooperation probability of $E_3$ has an error. The correction being using $\mathcal{E}_3$ instead of $\mathcal{E}_2$ in eq.~\ref{eq:corrected}. The corrected analytic result matches the simulation result as can be seen in the above figure. 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[height = 3in,width=4in,angle=00]{figures/coopP.png}
+\caption{\small Cooperation probabilities of $E_2$, $E_3$ versus user density ratio}
+\label{fig:cooP}
+\end{center}
+\end{figure}
+From the above graph we can see that cooperation probability of both policies increases with user density ratio($\lambda_2/\lambda_1$) and reach a maximum of 0.5 for very large user density ratio. Also, the analytic and simulations results closely match. 
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[height = 2.8in,width=4in,angle=00]{figures/rates.png}
 \caption{\small Average rate per user; $\lambda = \lambda_2/\lambda_1$}
-\label{fig:sysModel}
+\label{fig:rates}
 \end{center}
 \end{figure}
 From the above figure, we can clearly see that average rate per user has increased when PDF relaying is deployed over the whole network. The rate also increases as user density ratio is increased but we caan't sure whether the rate keeps increasing with $\lambda$. It might happen that the rate decreases for very large user ratio density due to increase in interference.
@@ -549,8 +576,15 @@ From the above figure, we can clearly see that average rate per user has increas
 \section{Future Work}
 
 \begin{itemize}
-\item Analysis and Simulation of a new policy $E_4$. In the two policies discussed in earlier sections, only the first neighbour of the active UE is seen as a potential relay. But intuitively any relay that satisfies the conditions mentioned in $E_2$ should be good enough. This also means higher cooperation probability and high inteference. If the inteference is so high that the rate decreases for some users, then there should be a way of deciding which users should use the relaying so that rate will be high for all users. need to be done using the new policy and if is promosing in terms per user average rate, then an analytic expression for cooperation probability should be developed. 
-\item As discussed in section~\ref{sec:powerCon}, the UEs are not using any power control techniques while deciding the transmission power. A distance based power control method proposed in [] can be used. This reduces the interference and can increase the data rate. 
+\item Analysis and Simulation of a new policy $E_4$. In the two policies discussed in earlier sections, only the first neighbour of the active UE is seen as a potential relay. But intuitively any relay that satisfies the conditions mentioned in $E_2$ should be good enough. This also means higher cooperation probability, shown in figure~\ref{fig:coopE4}  and high inteference. If the inteference is so high that the rate decreases for some users, then there should be a way of deciding which users should use the relaying so that rate will be high for all users. need to be done using the new policy and if is promosing in terms per user average rate, then an analytic expression for cooperation probability should be developed. 
+\begin{figure}[H] 
+\begin{center} 
+\includegraphics[height = 2.8in,width=4in,angle=00]{figures/simulCoopE4.png}
+\caption{\small Cooperation probability in E4 versus user density ratio }
+\label{fig:coopE4}
+\end{center}
+\end{figure}
+\item As mentioned in section~\ref{sec:powerCon}, the UEs are not using any power control techniques while deciding the transmission power. In practice, UEs use power control techniques which in essence reduce the transmission power when the UE is closer to the BS and use maximum power when the mobile phone is at the cell edge. This reduces the interference and can increase the data rate. 
 \item To determine how much power needs to be allocated to transmit the common codeword in second phase i.e., $P_s^{m_1}$, we are optimizing rate with respect to $P_s^{m_1}$ but this is not practical. UEs should know before hand how much power should be pumped to transmit the codeword. An algorithm needs to be developed that estimates $P_s^{m_1}$ based on channed conditions.  
 \end{itemize}
 
