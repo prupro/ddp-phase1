@@ -23,5 +23,4 @@
 \contentsline {section}{\numberline {6}Simulations and Results}{10}{section.6}
 \contentsline {subsection}{\numberline {6.1}Simulation Setting}{10}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}Results}{11}{subsection.6.2}
-\contentsline {section}{\numberline {7}Conclusions and Future Work}{12}{section.7}
-\contentsline {section}{\numberline {8}References}{12}{section.8}
+\contentsline {section}{\numberline {7}Future Work}{12}{section.7}
