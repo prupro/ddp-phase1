@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.10.17)  27 OCT 2015 00:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.10.17)  27 OCT 2015 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1019,21 +1019,21 @@ Package pdftex.def Info: figures/pdfRelaying.png used on input line 144.
 ]
 [8
 
-] <figures/netLayoutPaper.png, id=231, 497.60907pt x 316.93407pt>
+] [9
+
+] <figures/netLayoutPaper.png, id=257, 497.60907pt x 316.93407pt>
 File: figures/netLayoutPaper.png Graphic file (type png)
 
 <use figures/netLayoutPaper.png>
-Package pdftex.def Info: figures/netLayoutPaper.png used on input line 205.
+Package pdftex.def Info: figures/netLayoutPaper.png used on input line 206.
 (pdftex.def)             Requested size: 307.28987pt x 195.71849pt.
 
-Overfull \vbox (3.98982pt too high) detected at line 205
+Overfull \vbox (3.98982pt too high) detected at line 206
  []
 
-[9
+[10
 
- <./figures/netLayoutPaper.png>] [10
-
-] [11
+ <./figures/netLayoutPaper.png>] [11
 
 ] [12
 
@@ -1047,10 +1047,10 @@ Overfull \vbox (3.98982pt too high) detected at line 205
 
 ] [17
 
-]
-[18
+] [18
 
-] [19
+]
+[19
 
 ] [20
 
@@ -1066,21 +1066,21 @@ Overfull \vbox (3.98982pt too high) detected at line 205
 
 ] [26
 
-]
-Overfull \hbox (9.61732pt too wide) in paragraph at lines 387--387
-[]  
- []
-
-[27
+] [27
 
 ]
-Overfull \hbox (20.10347pt too wide) in paragraph at lines 398--398
+Overfull \hbox (9.61732pt too wide) in paragraph at lines 388--388
 []  
  []
 
 [28
 
-] [29
+]
+Overfull \hbox (20.10347pt too wide) in paragraph at lines 399--399
+[]  
+ []
+
+[29
 
 ] [30
 
@@ -1098,81 +1098,85 @@ Overfull \hbox (20.10347pt too wide) in paragraph at lines 398--398
 
 ] [37
 
+] [38
+
+] [39
+
 ]
-<figures/netLayoutSim.png, id=978, 1028.34187pt x 519.44063pt>
+<figures/netLayoutSim.png, id=1029, 1028.34187pt x 519.44063pt>
 File: figures/netLayoutSim.png Graphic file (type png)
 
 <use figures/netLayoutSim.png>
-Package pdftex.def Info: figures/netLayoutSim.png used on input line 501.
+Package pdftex.def Info: figures/netLayoutSim.png used on input line 521.
 (pdftex.def)             Requested size: 325.21608pt x 202.35117pt.
 
-Overfull \hbox (17.92621pt too wide) in paragraph at lines 501--501
+Overfull \hbox (17.92621pt too wide) in paragraph at lines 521--521
  [] 
  []
 
 
-Overfull \vbox (6.53197pt too high) detected at line 501
+Overfull \vbox (6.53197pt too high) detected at line 521
  []
 
-[38
+[40
 
- <./figures/netLayoutSim.png (PNG copy)>] [39
+ <./figures/netLayoutSim.png (PNG copy)>] [41
 
 ]
-<figures/corrected.png, id=1031, 455.45157pt x 276.28218pt>
+<figures/corrected.png, id=1081, 455.45157pt x 276.28218pt>
 File: figures/corrected.png Graphic file (type png)
 
 <use figures/corrected.png>
-Package pdftex.def Info: figures/corrected.png used on input line 524.
+Package pdftex.def Info: figures/corrected.png used on input line 544.
 (pdftex.def)             Requested size: 284.53143pt x 199.16751pt.
- [40
+ [42
 
  <./figures/corrected.png (PNG copy)>]
-<figures/coopP.png, id=1058, 519.44063pt x 362.85562pt>
+<figures/coopP.png, id=1109, 519.44063pt x 362.85562pt>
 File: figures/coopP.png Graphic file (type png)
 
 <use figures/coopP.png>
-Package pdftex.def Info: figures/coopP.png used on input line 535.
+Package pdftex.def Info: figures/coopP.png used on input line 555.
 (pdftex.def)             Requested size: 284.5281pt x 199.17256pt.
- [41
+ [43
 
  <./figures/coopP.png (PNG copy)>]
-<figures/rates.png, id=1085, 537.50812pt x 342.5297pt>
+<figures/rates.png, id=1137, 537.50812pt x 342.5297pt>
 File: figures/rates.png Graphic file (type png)
  <use figures/rates.png>
-Package pdftex.def Info: figures/rates.png used on input line 546.
+Package pdftex.def Info: figures/rates.png used on input line 566.
 (pdftex.def)             Requested size: 307.28987pt x 195.8241pt.
 
-[42
+[44
 
  <./figures/rates.png (PNG copy)>]
-<figures/simulCoopE4.png, id=1113, 578.91281pt x 447.92343pt>
+<figures/simulCoopE4.png, id=1164, 578.91281pt x 447.92343pt>
 File: figures/simulCoopE4.png Graphic file (type png)
 
 <use figures/simulCoopE4.png>
-Package pdftex.def Info: figures/simulCoopE4.png used on input line 572.
+Package pdftex.def Info: figures/simulCoopE4.png used on input line 592.
 (pdftex.def)             Requested size: 199.16862pt x 142.25853pt.
 pdfTeX warning (ext4): destination with the same identifier (name{plot3}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.572 \end{frame}
-                  [43
+l.592 \end{frame}
+                  [45
 
- <./figures/simulCoopE4.png (PNG copy)>] [44
-
-] [45
-
-]
-[46
+ <./figures/simulCoopE4.png (PNG copy)>] [46
 
 ] [47
 
-] [48
+]
+[48
 
 ] [49
 
 ] [50
+
+] [51
+
+] [52
 
 ]
 \tf@nav=\write6
@@ -1184,11 +1188,11 @@ l.572 \end{frame}
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 616.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 616.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 638.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 638.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 616.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 616.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 638.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 638.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1199,13 +1203,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 616.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 638.
  ) 
 Here is how much of TeX's memory you used:
- 17915 strings out of 495025
- 338843 string characters out of 6181514
- 407387 words of memory out of 5000000
- 20607 multiletter control sequences out of 15000+600000
+ 17921 strings out of 495025
+ 338897 string characters out of 6181514
+ 407391 words of memory out of 5000000
+ 20609 multiletter control sequences out of 15000+600000
  16487 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,14n,55p,440b,553s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1226,10 +1230,10 @@ i8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (50 pages, 540819 bytes).
+Output written on presentation.pdf (52 pages, 544843 bytes).
 PDF statistics:
- 1401 PDF objects out of 1440 (max. 8388607)
- 1304 compressed objects within 14 object streams
- 108 named destinations out of 1000 (max. 500000)
+ 1453 PDF objects out of 1728 (max. 8388607)
+ 1354 compressed objects within 14 object streams
+ 112 named destinations out of 1000 (max. 500000)
  78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

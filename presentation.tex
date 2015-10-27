@@ -71,7 +71,7 @@ Dual Degree Phase 1 Presentation}
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
 
-\date{October 27, 2015}
+\date{27th October 2015}
 % - Either use conference name or its abbreviation.
 % - Not really informative to the audience, more for people (including
 %   yourself) who are reading the slides online
@@ -126,7 +126,7 @@ Dual Degree Phase 1 Presentation}
   \vspace{0.5cm}
   \item Relay-aided cooperative communication techniques represent a promising technology that improves average rate
   \vspace{0.5cm}
-  \item We use Partial Decode-and-Forward scheme for relaying
+  \item We use Partial Decode-and-Forward relaying scheme 
   \vspace{0.5cm}
   \item We will explore two policies by which active User Equipments(UEs) pick their relays
   \end{itemize}
@@ -166,6 +166,7 @@ Signals received at relay, BS during broadcast(b) and multicast(m) phases:
 Y_r^b = h_{sr}x^b_s + Z_r^b , \quad Y_d^b = h_{sd}x^b_s + Z_d^b
 \end{equation*}
 $Z_r^b$ and $Z_d^b$ are \textit{i.i.d} $\mathcal{CN}(0,\sigma^2)$ that represent noises at $\mathcal{R}$ and $\mathcal{D}$. \\
+\pause
 \begin{equation*}
 Y_d^m = h_{sd}x^m_s + h_{rd}x_r^m + Z_d^m
 \end{equation*}
@@ -421,8 +422,8 @@ The pdf $f_\beta(z)$ is then obtained by differentiating $F_\beta(z)$ :
 \begin{frame}{Simulations}{Generate UEs}
 Consider a square region of area A. 
 \begin{itemize}
-\item  $N_1 \sim $ poisson($\lambda_1 A$)
-\item $N_2 \sim $ poisson($\lambda_2 A$)
+\item  Pick $N_1 \sim $ poisson($\lambda_1 A$)
+\item  Pick $N_2 \sim $ poisson($\lambda_2 A$)
 \item Distribute $N_1$ UEs uniformly in the region and mark them as active UEs
 \item Distribute $N_2$ UEs uniformly in the region and mark them as idle UEs
 \end{itemize}
@@ -461,7 +462,7 @@ BSs are generated in the following manner:
 \begin{frame}{Simulations}{Generating Base Stations}
 \vspace{-1cm}
 \begin{itemize}
-\item If there are more than on BS in the region, pick any one of them randomly. 
+\item If there is more than one BS in the region, pick any one of them randomly. 
 \vspace{0.75cm}
 \item Since BSs are uniform over the whole region, they are also uniform in each Voronoi region
 \vspace{0.75cm}
@@ -490,7 +491,26 @@ The average powers used by source and relay are as follows:
 
 \end{frame}
 
+\begin{frame}{Simulations}{Other Parameters}
+\centering
+
+\begin{equation*}
+\text{Path loss exponent } \alpha = 3
+\end{equation*}
+
+\begin{equation*}
+\rho = \frac{\text{Number of users with relays}}{\text{Total number of active users}}
+\end{equation*}
+
+\begin{equation*}
+\text{Fraction of transmission time used for 1st phase }\alpha_1 = 0.5
+\end{equation*}
+
+
+\end{frame}
+
 \begin{frame}{Results}
+
 \begin{figure}[!h]
 \includegraphics[height = 2.8in,width=4.5in,angle=00]{figures/netLayoutSim.png}
 \centering
@@ -559,7 +579,7 @@ $\mathcal{E}_2$ was used in place of $\mathcal{E}_3$
   \item
      In the policies $E_2$, $E_3$, only the first neighbour of the active UE is seen as a potential relay. 
     
-   \item Any relay which is at a distance $r_2$ from active UE and satisfies $r_2<r_1, D < r_1$ can be treated as a potential relay
+   \item Any relay which is at a distance $r_2$ from active UE and satisfying $r_2<r_1, D < r_1$ can be treated as a potential relay
    \begin{figure}[!h]
         \includegraphics[width=7cm, height= 5cm]{figures/simulCoopE4.png}
         \centering
@@ -572,12 +592,14 @@ $\mathcal{E}_2$ was used in place of $\mathcal{E}_3$
 \end{frame}
 
 \begin{frame}{Future Work}{New Policy}
-\vspace{1cm}
+\vspace{0.75cm}
 \begin{itemize}  
   \item
-   This also means higher inteference
-   \vspace{1cm}
-  \item If rate decreases for some users, then there should be a way of deciding which users should use the relaying so that rate will be high for all users. 
+   This also means more interference
+   \vspace{0.75cm}
+  \item Simulate and see if the rate decreases due to increased interference
+  \vspace{0.75cm}
+  \item If results are not negative, develop an analytical expression for cooperation probability
   \end{itemize}
 \end{frame}
 
